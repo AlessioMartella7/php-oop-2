@@ -1,20 +1,8 @@
 <?php 
 require_once __DIR__.'/classes/Products.php';
 require_once __DIR__.'/classes/categories/Category.php';
+require_once __DIR__.'/db/db.php';
 
-
-
-$dog = new Category('Dog','<i class="fa-solid fa-dog"></i>');
-$cat = new Category('Cat', '<i class="fa-solid fa-cat"></i>');
-
-
-
-$rubberMouse = new Toys('Rubber Mouse','...', 12.6 , $cat, 'Rubber', 'Young', 'Toys');
-$ball = new Toys('Ball','...', 12.6 , $dog, 'Rubber', 'All','Toys');
-$bone = new Food ('Bone','...', 4.90, $dog, 'Dry', 'Beef Bones', 'Food');
-$kibble = new Food ('Kibble','...', 7.52, $cat, 'Dry', 'Salmon', 'Food');
-$wildDog = new Food('Wild Dog', '...', 5.60, $dog, 'Wet', 'Lamb', 'Food');
-$fancyKennel = new Kennels('Royal Cat', 'https://squarepaws.com/wp-content/uploads/2020/08/sq_paws_throne-001.jpg', 59.90 , $cat, 'Medium', 'Cotton-Wool', 'Kennels');
 
 
 ?>
@@ -37,39 +25,59 @@ $fancyKennel = new Kennels('Royal Cat', 'https://squarepaws.com/wp-content/uploa
     <main>
         <div class="container">
             <div class="row my-5 bg-dark p-4">
-
+                <?php foreach($products as $singleProduct) { ?>
                 <div class="col-4">
                     <div class="card border-warning mb-3" style="max-width: 25rem;">
-                        <img src="<?= $fancyKennel->imageUrl?>" class="card-img-top image-fluid" alt="...">
+                        <img src="<?= $singleProduct->imageUrl?>" class="card-img-top image-fluid" alt="...">
                         <div class="card-header card-title text-center">
-                            <h3><?= $fancyKennel->title?></h3>
+                            <h3><?= $singleProduct->title?></h3>
                         </div>
                         <div class="card-body">
                             <div class="card" style="width: 18rem;">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <p class="fs-4">
-                                            <?= $fancyKennel->category->categoryIcon?><?= $fancyKennel->category->name?>
+                                            <?= $singleProduct->category->categoryIcon?>
+                                            <?= $singleProduct->category->name?>
                                             Product
                                         </p>
                                     </li>
                                     <li class="list-group-item">
-                                        <p class="fs-4"> <strong>Price: </strong><?= $fancyKennel->price?>€</p>
+                                        <p class="fs-4"> <strong>Price:
+                                            </strong><?= number_format($singleProduct->price,2, '.' , '')?>€</p>
+                                    </li>
+                                    <?php if ($singleProduct instanceof Kennels){ ?>
+                                    <li class="list-group-item">
+                                        <p class="fs-4"><strong>Size: </strong><?= $singleProduct->size ?></p>
                                     </li>
                                     <li class="list-group-item">
-                                        <p class="fs-4"><strong>Size: </strong><?= $fancyKennel->size?></p>
+                                        <p class="fs-5"><strong>Material: </strong><?= $singleProduct->fabbric ?></p>
+                                    </li>
+                                    <?php } elseif ($singleProduct instanceof Food) {?>
+                                    <li class="list-group-item">
+                                        <p class="fs-4"><strong>Type: </strong><?= $singleProduct->type ?></p>
                                     </li>
                                     <li class="list-group-item">
-                                        <p class="fs-5"><strong>Material: </strong><?= $fancyKennel->fabbric?></p>
+                                        <p class="fs-5"><strong>Ingredients: </strong><?= $singleProduct->ingredients ?>
+                                        </p>
+                                    </li>
+                                    <?php } elseif ($singleProduct instanceof Toys) {?>
+                                    <li class="list-group-item">
+                                        <p class="fs-4"><strong>Material: </strong><?= $singleProduct->material ?></p>
                                     </li>
                                     <li class="list-group-item">
-                                        <p class=""><strong>Article: </strong><?= $fancyKennel->article?></p>
+                                        <p class="fs-5"><strong>Age: </strong><?= $singleProduct->age ?></p>
+                                    </li>
+                                    <?php }; ?>
+                                    <li class="list-group-item">
+                                        <p class=""><strong>Article: </strong><?= $singleProduct->article?></p>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </main>
