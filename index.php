@@ -1,9 +1,13 @@
 <?php 
 require_once __DIR__.'/classes/Products.php';
+require_once __DIR__.'/classes/categories/Category.php';
 
-$osso = new Products('bone','...', 29.90);
-var_dump($osso->getInfo());
-
+$dog = new Category('Dog','<i class="fa-solid fa-dog"></i>');
+$cat = new Category('Cat', '<i class="fa-solid fa-cat"></i>');
+$bone = new Products('Bone','...', 29.90, $dog);
+var_dump($bone);
+$rubberMouse = new Products('Rubber Mouse','...', 12.6 , $cat);
+var_dump($rubberMouse);
 ?>
 <!DOCTYPE html>
 <html lang="en">
