@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/categories/Category.php';
+require_once __DIR__.'/articles/Toys.php';
 class Products {
 
     public string $title;
