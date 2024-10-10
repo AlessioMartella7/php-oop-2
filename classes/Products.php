@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__.'/categories/Category.php';
 require_once __DIR__.'/articles/Toys.php';
+require_once __DIR__.'/articles/Kennels.php';
+require_once __DIR__.'/articles/Food.php';
 class Products {
 
     public string $title;

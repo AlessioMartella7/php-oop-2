@@ -2,13 +2,18 @@
 require_once __DIR__.'/classes/Products.php';
 require_once __DIR__.'/classes/categories/Category.php';
 
+
+
 $dog = new Category('Dog','<i class="fa-solid fa-dog"></i>');
 $cat = new Category('Cat', '<i class="fa-solid fa-cat"></i>');
 $bone = new Products('Bone','...', 29.90, $dog);
-var_dump($bone);
 $rubberMouse = new Toys('Rubber Mouse','...', 12.6 , $cat, 'rubber', 'young');
+$fancyKennel = new Kennels('Royal Cat', '...', 59.90 , $cat, 'Medium', 'Cotton-Wool');
+$wildDog = new Food('Wild Dog', '...', 5.60, $dog, 'wet', 'Lamb');
+var_dump($fancyKennel);
 var_dump($rubberMouse);
-
+var_dump($bone);
+var_dump($wildDog);
 
 ?>
 <!DOCTYPE html>
