@@ -3,8 +3,6 @@ require_once __DIR__.'/../Products.php';
 
 class Toys extends Products {
     
-    
-    
     public string $article;
     public string $material;
     public string $age;

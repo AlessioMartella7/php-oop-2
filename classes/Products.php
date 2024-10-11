@@ -2,7 +2,6 @@
 require_once __DIR__.'/../traits/Discountable.php';
 require_once __DIR__.'/categories/Category.php';
 
-
 class Products {
     
     public string $title;
@@ -26,6 +25,7 @@ class Products {
         return $this->title . ' '. $this->price;
     }
 
+    
 
     
 
