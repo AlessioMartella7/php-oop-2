@@ -2,6 +2,8 @@
 require_once __DIR__.'/classes/Products.php';
 require_once __DIR__.'/classes/categories/Category.php';
 require_once __DIR__.'/db/db.php';
+require_once __DIR__.'/traits/Discountable.php';
+
 
 ?>
 <!DOCTYPE html>
