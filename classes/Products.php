@@ -1,17 +1,17 @@
 <?php
-require_once __DIR__.'/categories/Category.php';
-require_once __DIR__.'/articles/Toys.php';
-require_once __DIR__.'/articles/Kennels.php';
-require_once __DIR__.'/articles/Food.php';
 require_once __DIR__.'/../traits/Discountable.php';
-class Products {
+require_once __DIR__.'/categories/Category.php';
 
+
+class Products {
+    
     public string $title;
     public string $imageUrl;
     public float $price;
     public Category $category;
     
-    // use Discountable;
+    use Discountable;
+
 
     function __construct(string $title, string $imageUrl, float $price, Category $category)
     {

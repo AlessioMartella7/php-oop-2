@@ -5,8 +5,8 @@ trait Discountable{
 
     public function applyDiscount($discountAmount){
         if ($discountAmount >= 0 && $discountAmount <= 100) {
-            $this->price * ((100 - $discountAmount) / 100);
-            $this->discount = $discountAmount;
+            $discountedPrice = $this->price * ((100 - $discountAmount) / 100);
+           return $discountedPrice;
         }
     }
 }

@@ -1,8 +1,13 @@
 <?php 
 require_once __DIR__.'/classes/Products.php';
+require_once __DIR__.'/traits/Discountable.php';
 require_once __DIR__.'/classes/categories/Category.php';
 require_once __DIR__.'/db/db.php';
-require_once __DIR__.'/traits/Discountable.php';
+require_once __DIR__.'/classes/articles/Food.php';
+require_once __DIR__.'/classes/articles/Toys.php';
+require_once __DIR__.'/classes/articles/Kennels.php';
+
+var_dump($bone->applyDiscount(50));
 
 
 ?>

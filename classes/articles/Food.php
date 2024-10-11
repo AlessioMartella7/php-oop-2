@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__.'/../Products.php';
+
 class Food extends Products {
     
     public string $article;
