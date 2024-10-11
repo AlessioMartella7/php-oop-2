@@ -4,7 +4,6 @@ require_once __DIR__.'/../classes/articles/Food.php';
 require_once __DIR__.'/../classes/articles/Toys.php';
 require_once __DIR__.'/../classes/articles/Kennels.php';
 
-
 // categories
 
 $dog = new Category('Dog','<i class="fa-solid fa-dog"></i>');

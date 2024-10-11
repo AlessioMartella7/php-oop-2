@@ -2,7 +2,6 @@
 
 require_once __DIR__.'/../Products.php';
 
-
 class Kennels extends Products {
     
     public string $article;
