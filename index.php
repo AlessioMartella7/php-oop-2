@@ -7,8 +7,11 @@ require_once __DIR__.'/classes/articles/Food.php';
 require_once __DIR__.'/classes/articles/Toys.php';
 require_once __DIR__.'/classes/articles/Kennels.php';
 
-var_dump($bone->applyDiscount(50));
-
+// eccezione 
+try {$yumFood = new Food('Yummy Food', '...', -20.5, $cat, 'wet', 'beef', 'Food' );
+} catch (Exception $invalidPrice){
+    echo $invalidPrice->getMessage();
+}
 
 ?>
 <!DOCTYPE html>
